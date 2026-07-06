@@ -158,7 +158,7 @@ Stock Analysis/
 │   └── EDA.ipynb
 │
 ├── data/
-│   └── Sensex29_Master_Cleaned.csv
+│   └── Sensex30_Master_Cleaned.csv
 │
 ├── requirements.txt
 │

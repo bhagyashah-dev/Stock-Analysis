@@ -7,7 +7,7 @@ import pandas as pd
 # =====================================================
 
 @st.cache_data
-def load_data(filepath="data/Sensex29_Master_Cleaned.csv"):
+def load_data(filepath="data/Sensex30_Master_Cleaned.csv"):
 
     df = pd.read_csv(filepath)
 
