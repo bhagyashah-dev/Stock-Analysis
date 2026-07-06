@@ -110,53 +110,41 @@ The following financial features were created during preprocessing:
 
 ## 📷 Dashboard Preview
 
-### 🏠 Dashboard Overview
+---
+
+### 📈 All Companies Dashboard & Analysis
 
 <p align="center">
   <a href="assets/dashboard%20(1).png">
-    <img src="assets/dashboard%20(1).png" width="90%">
+    <img src="assets/dashboard%20(1).png" width="48%">
   </a>
-</p>
 
----
-
-### 📈 Performance & Correlation Analysis
-
-<p align="center">
   <a href="assets/dashboard%20(2).png">
     <img src="assets/dashboard%20(2).png" width="48%">
   </a>
-
-  <a href="assets/dashboard%20(3).png">
-    <img src="assets/dashboard%20(3).png" width="48%">
-  </a>
 </p>
 
 ---
 
-### 📊 Individual Company Dashboard
+### 📊 Individual Company Dashboard & Analysis
 
 <p align="center">
+  <a href="assets/dashboard%20(3).png">
+    <img src="assets/dashboard%20(3).png" width="48%">
+  </a>
+
   <a href="assets/dashboard%20(4).png">
     <img src="assets/dashboard%20(4).png" width="48%">
   </a>
-
-  <a href="assets/dashboard%20(5).png">
-    <img src="assets/dashboard%20(5).png" width="48%">
-  </a>
 </p>
 
 ---
 
-### 📈 Performance & Correlation Analysis
+### 🔍 Relationship Analysis
 
 <p align="center">
-  <a href="assets/dashboard%20(2).png">
-    <img src="assets/dashboard%20(2).png" width="48%">
-  </a>
-
-  <a href="assets/dashboard%20(3).png">
-    <img src="assets/dashboard%20(3).png" width="48%">
+  <a href="assets/dashboard%20(5).png">
+    <img src="assets/dashboard%20(5).png" width="90%">
   </a>
 </p>
 
