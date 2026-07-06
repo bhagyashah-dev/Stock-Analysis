@@ -110,8 +110,6 @@ The following financial features were created during preprocessing:
 
 ## 📷 Dashboard Preview
 
----
-
 ### 📈 All Companies Dashboard & Analysis
 
 <p align="center">
@@ -124,8 +122,6 @@ The following financial features were created during preprocessing:
   </a>
 </p>
 
----
-
 ### 📊 Individual Company Dashboard & Analysis
 
 <p align="center">
@@ -137,8 +133,6 @@ The following financial features were created during preprocessing:
     <img src="assets/dashboard%20(4).png" width="48%">
   </a>
 </p>
-
----
 
 ### 🔍 Relationship Analysis
 
