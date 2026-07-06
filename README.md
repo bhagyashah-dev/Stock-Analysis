@@ -217,6 +217,8 @@ streamlit run dashboard/app.py
 
 ---
 
+This Project was built during Summer Internship at Elite TechnoCrats.
+
 ## 👨‍💻 Author
 
 **Bhagya Shah**
