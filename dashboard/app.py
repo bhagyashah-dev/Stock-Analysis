@@ -12,10 +12,10 @@ from charts import (
     daily_return_chart, open_close_chart, volume_close_chart
 )
 
-st.set_page_config(page_title="Sensex 30 Financial Analytics Dashboard",page_icon="📈",layout="wide")
+st.set_page_config(page_title="Sensex 30 Financial Analytics Dashboard",page_icon="💸",layout="wide")
 master_df=load_data()
 
-st.title("📈 Sensex 30 Financial Analytics Dashboard")
+st.title("💸 Sensex 30 Financial Analytics Dashboard")
 st.markdown("Analyze and compare the historical performance of the Top 30 Sensex companies using interactive financial visualizations and key performance metrics.")
 
 st.sidebar.header("Dashboard Filters")
@@ -26,25 +26,11 @@ min_date=master_df["Date"].min().date()
 max_date=master_df["Date"].max().date()
 date_range=st.sidebar.date_input("Select Date Range",value=(min_date,max_date),min_value=min_date,max_value=max_date)
 
-master_df = master_df.sort_values(["Stock", "Date"])
-
-master_df["Daily_Return"] = (
-    master_df.groupby("Stock")["Close"]
-    .pct_change() * 100
-)
+master_df["Daily_Return"] = (master_df.groupby("Stock")["Close"].pct_change() * 100)
+master_df["MA20"] = (master_df.groupby("Stock")["Close"].transform(lambda x: x.rolling(20).mean()))
+master_df["MA50"] = (master_df.groupby("Stock")["Close"].transform(lambda x: x.rolling(50).mean()))
 
 master_df = master_df.sort_values(["Stock", "Date"])
-
-master_df["MA20"] = (
-    master_df.groupby("Stock")["Close"]
-    .transform(lambda x: x.rolling(20).mean())
-)
-
-master_df["MA50"] = (
-    master_df.groupby("Stock")["Close"]
-    .transform(lambda x: x.rolling(50).mean())
-)
-
 filtered_df=filter_data(master_df,selected_company,date_range)
 
 st.write(f"Showing **{len(filtered_df):,}** records")
@@ -75,7 +61,7 @@ if selected_company=="All Companies":
     with c3:
         st.plotly_chart(volatility_chart(get_volatility(filtered_df)),use_container_width=True)
 
-    st.header("🔥 Correlation Analysis")
+    st.header("🔍 Correlation Analysis")
     st.plotly_chart(correlation_heatmap(get_correlation(filtered_df)),use_container_width=True)
 
 else:
