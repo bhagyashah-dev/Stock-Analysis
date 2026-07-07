@@ -6,10 +6,10 @@ from utils import (
     get_total_return, get_volatility, get_correlation
 )
 from charts import (
-    average_close_chart, average_volume_chart, closing_price_chart,
-    volume_trend_chart, moving_average_chart,
-    average_daily_return_chart, total_return_chart,
-    volatility_chart, correlation_heatmap, daily_return_chart, open_close_chart, volume_close_chart
+    average_close_chart, average_volume_chart, average_daily_return_chart, 
+    total_return_chart, volatility_chart, correlation_heatmap, 
+    closing_price_chart, volume_trend_chart, moving_average_chart, 
+    daily_return_chart, open_close_chart, volume_close_chart
 )
 
 st.set_page_config(page_title="Sensex 30 Financial Analytics Dashboard",page_icon="📈",layout="wide")
