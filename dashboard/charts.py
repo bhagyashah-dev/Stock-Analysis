@@ -1,10 +1,7 @@
 import plotly.express as px
-import plotly.graph_objects as go
 
 
-# =====================================================
 # Market Comparison
-# =====================================================
 
 def average_close_chart(df):
 
@@ -53,91 +50,7 @@ def average_volume_chart(df):
     return fig
 
 
-# =====================================================
-# Price Analysis
-# =====================================================
-
-def closing_price_chart(df, company):
-
-    fig = px.line(
-        df,
-        x="Date",
-        y="Close",
-        title=f"{company} Closing Price Trend"
-    )
-
-    fig.update_layout(
-        xaxis_title="Date",
-        yaxis_title="Closing Price (₹)",
-        hovermode="x unified"
-    )
-
-    return fig
-
-
-def volume_trend_chart(df, company):
-
-    fig = px.line(
-        df,
-        x="Date",
-        y="Volume",
-        title=f"{company} Trading Volume Trend"
-    )
-
-    fig.update_layout(
-        xaxis_title="Date",
-        yaxis_title="Volume",
-        hovermode="x unified"
-    )
-
-    return fig
-
-
-# =====================================================
-# Technical Analysis
-# =====================================================
-
-def moving_average_chart(df, company):
-
-    fig = go.Figure()
-
-    fig.add_trace(
-        go.Scatter(
-            x=df["Date"],
-            y=df["Close"],
-            name="Close"
-        )
-    )
-
-    fig.add_trace(
-        go.Scatter(
-            x=df["Date"],
-            y=df["MA20"],
-            name="MA20"
-        )
-    )
-
-    fig.add_trace(
-        go.Scatter(
-            x=df["Date"],
-            y=df["MA50"],
-            name="MA50"
-        )
-    )
-
-    fig.update_layout(
-        title=f"{company} Moving Average Analysis",
-        xaxis_title="Date",
-        yaxis_title="Price (₹)",
-        hovermode="x unified"
-    )
-
-    return fig
-
-
-# =====================================================
 # Performance Analysis
-# =====================================================
 
 def average_daily_return_chart(df):
 
@@ -205,9 +118,7 @@ def volatility_chart(df):
     return fig
 
 
-# =====================================================
 # Correlation Analysis
-# =====================================================
 
 def correlation_heatmap(df):
 
@@ -220,7 +131,71 @@ def correlation_heatmap(df):
 
     return fig
 
-# Daily Return
+
+# Price Analysis
+
+def closing_price_chart(df, company):
+
+    fig = px.line(
+        df,
+        x="Date",
+        y="Close",
+        title=f"{company} Closing Price Trend"
+    )
+
+    fig.update_layout(
+        xaxis_title="Date",
+        yaxis_title="Closing Price (₹)",
+        hovermode="x unified"
+    )
+
+    return fig
+
+
+def volume_trend_chart(df, company):
+
+    fig = px.line(
+        df,
+        x="Date",
+        y="Volume",
+        title=f"{company} Trading Volume Trend"
+    )
+
+    fig.update_layout(
+        xaxis_title="Date",
+        yaxis_title="Volume",
+        hovermode="x unified"
+    )
+
+    return fig
+
+
+# Technical Analysis
+
+def moving_average_chart(df, company):
+
+    fig = px.line(
+        df,
+        x="Date",
+        y=["Close", "MA20", "MA50"],
+        title=f"{company} Moving Average Analysis",
+        labels={
+            "value": "Price (₹)",
+            "variable": "Indicator",
+            "Date": "Date"
+        }
+    )
+
+    fig.update_layout(
+        xaxis_title="Date",
+        yaxis_title="Price (₹)",
+        hovermode="x unified"
+    )
+
+    return fig
+
+
+# Return Analysis
 
 def daily_return_chart(df, company):
 
@@ -239,7 +214,7 @@ def daily_return_chart(df, company):
 
     return fig
 
-# Relationships
+# Relationship Analysis
 
 def open_close_chart(df, company):
 
@@ -248,7 +223,6 @@ def open_close_chart(df, company):
         x="Open",
         y="Close",
         title=f"{company} Open Price vs Closing Price",
-        # trendline="ols"
     )
 
     fig.update_layout(
@@ -265,7 +239,6 @@ def volume_close_chart(df, company):
         x="Volume",
         y="Close",
         title=f"{company} Trading Volume vs Closing Price",
-        # trendline="ols"
     )
 
     fig.update_layout(
