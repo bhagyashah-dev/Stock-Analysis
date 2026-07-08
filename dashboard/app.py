@@ -82,32 +82,14 @@ else:
     st.plotly_chart(moving_average_chart(filtered_df,selected_company),use_container_width=True)
 
     st.header("📉 Return Analysis")
-    st.plotly_chart(
-        daily_return_chart(
-            filtered_df,
-            selected_company
-        ),
-        use_container_width=True
-    )
+    st.plotly_chart(daily_return_chart(filtered_df,selected_company),use_container_width=True)
 
     st.header("🔍 Relationship Analysis")
     c1, c2 = st.columns(2)
     with c1:
-        st.plotly_chart(
-            open_close_chart(
-                filtered_df,
-                selected_company
-            ),
-            use_container_width=True
-        )
+        st.plotly_chart(open_close_chart(filtered_df,selected_company),use_container_width=True)
     with c2:
-        st.plotly_chart(
-            volume_close_chart(
-                filtered_df,
-                selected_company
-            ),
-            use_container_width=True
-        )
+        st.plotly_chart(volume_close_chart(filtered_df,selected_company),use_container_width=True)
 
 with st.expander("📋 Dataset Explorer"):
     st.dataframe(filtered_df,use_container_width=True)

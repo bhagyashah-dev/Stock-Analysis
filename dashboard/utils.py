@@ -9,6 +9,7 @@ import streamlit as st
 def load_data(filepath="data/Sensex30_Master_Cleaned.csv"):
     df = pd.read_csv(filepath)
 
+    # Data Cleaning
     df.columns = df.columns.str.strip()
     df["Date"] = pd.to_datetime(df["Date"])
     df.sort_values("Date", inplace=True)
