@@ -30,7 +30,7 @@ master_df["Daily_Return"] = (master_df.groupby("Stock")["Close"].pct_change() * 
 master_df["MA20"] = (master_df.groupby("Stock")["Close"].transform(lambda x: x.rolling(20).mean()))
 master_df["MA50"] = (master_df.groupby("Stock")["Close"].transform(lambda x: x.rolling(50).mean()))
 
-master_df = master_df.sort_values(["Stock", "Date"])
+master_df = master_df.sort_values(["Stock", "Date"]) # Sorting Again
 filtered_df=filter_data(master_df,selected_company,date_range)
 
 st.write(f"Showing **{len(filtered_df):,}** records")

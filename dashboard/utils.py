@@ -8,12 +8,59 @@ import streamlit as st
 @st.cache_data
 def load_data(filepath="data/Sensex30_Master_Cleaned.csv"):
     df = pd.read_csv(filepath)
-
-    # Data Cleaning
+    
+    # Data Cleaning Again
     df.columns = df.columns.str.strip()
     df["Date"] = pd.to_datetime(df["Date"])
     df.sort_values("Date", inplace=True)
     return df
+
+@st.cache_data
+def load_multiple_data(files):
+    required_columns = {"Date", "Open", "High", "Low", "Close", "Volume"}
+    dfs = []
+
+    for file in files:
+        df = pd.read_csv(file)
+
+        # PROPER DATA MERGING & CLEANING (like done manually in notebook for sensex30)
+
+        df.columns = df.columns.str.strip() # Remove extra spaces from column names
+        
+        # Yahoo Finance exported files 
+        if "Price" in df.columns and "Date" not in df.columns:   
+            df.rename(columns={"Price": "Date"}, inplace=True) # Rename first column to Date
+            df = df.iloc[2:].reset_index(drop=True) # Remove first two metadata rows
+
+        # Check required columns
+        missing = required_columns - set(df.columns)
+        if missing:
+            st.error(f"❌ {file.name} is missing required columns: {', '.join(sorted(missing))}")
+            st.stop()
+
+        # Create Stock column from filename if missing
+        if "Stock" not in df.columns:
+            df["Stock"] = file.name.replace(".csv", "").strip()
+
+        df["Stock"] = df["Stock"].astype(str).str.strip() # Remove extra spaces from Stock names
+        df["Date"] = pd.to_datetime(df["Date"], errors="coerce") # Convert Date column  
+        df.dropna(subset=["Date"], inplace=True) # Remove rows with invalid dates
+
+        # Convert numeric columns
+        numeric_columns = ["Open", "High", "Low", "Close", "Volume"]
+        for col in numeric_columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+
+        df.dropna(subset=["Open", "High", "Low", "Close", "Volume"],inplace=True) # Remove rows with missing values
+        df.drop_duplicates(inplace=True) # Remove duplicate rows
+        dfs.append(df)
+
+    master_df = pd.concat(dfs, ignore_index=True) # Merge all files
+    master_df.sort_values(["Stock", "Date"], inplace=True) # Sort data
+    master_df.reset_index(drop=True, inplace=True) # Reset index
+
+    return master_df
+
 
 
 # Apply Filters
