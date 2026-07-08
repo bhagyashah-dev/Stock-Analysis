@@ -1,39 +1,46 @@
-# 📈 Sensex 30 Stock Market Analytics Dashboard
+# 📈 Sensex 30 Analytics Dashboard with Analyse your own Stocks Feature
 
 An end-to-end data analytics project that explores the historical performance of the Top 30 S&P BSE Sensex companies using Python, Exploratory Data Analysis (EDA), and an interactive Streamlit dashboard.
 
-The project covers the complete analytics workflow—from collecting and preprocessing stock market data to engineering financial features, performing statistical analysis, and developing an interactive dashboard for data exploration.
+In addition to analyzing the built-in Sensex dataset, the dashboard also allows users to upload and analyze their own stock market datasets with automatic preprocessing, feature engineering, and interactive visualizations.
+
+The project demonstrates the complete data analytics workflow—from collecting and preprocessing stock market data to engineering financial features, performing statistical analysis, and building an interactive dashboard for financial data exploration.
 
 ---
 
-## 📌 Project Overview
+# 📌 Project Overview
 
-This project analyzes approximately **21,700+ historical stock market records** of the Top 30 Sensex companies over a period of nearly **3 years**.
+This project analyzes approximately **21,700+ historical stock market records** of the Top 30 S&P BSE Sensex companies over a period of nearly **3 years**.
 
-The objective is to understand stock performance through statistical analysis, financial metrics, correlation analysis, volatility analysis, and interactive visualizations.
+The dashboard provides two analysis modes:
+
+- 🏠 **Sensex 30 Dashboard** – Explore the preloaded Sensex dataset.
+- 📂 **Upload Your Dataset** – Upload one or more stock CSV files and perform the same financial analysis on your own data.
 
 ---
 
-## 🚀 Features
+# 🚀 Features
 
-### 📊 Exploratory Data Analysis (EDA)
+## 📊 Exploratory Data Analysis (EDA)
 
-- Dataset overview and preprocessing
-- Missing value and duplicate analysis
+- Dataset overview
+- Data cleaning & preprocessing
+- Missing value analysis
+- Duplicate removal
 - Feature engineering
 - Univariate analysis
 - Bivariate analysis
 - Time-series analysis
 - Correlation analysis
-- Stock performance analysis
 - Volatility analysis
 - Moving Average analysis
+- Stock performance analysis
 
 ---
 
-### ⚙️ Financial Features Engineered
+## ⚙️ Financial Features Engineered
 
-The following financial features were created during preprocessing:
+The following financial features are generated automatically:
 
 - Daily Return (%)
 - 20-Day Moving Average (MA20)
@@ -42,61 +49,109 @@ The following financial features were created during preprocessing:
 
 ---
 
-### 📈 Interactive Streamlit Dashboard
+# 💻 Interactive Streamlit Dashboard
 
-#### 🌍 All Companies Dashboard
+## 🏠 Home – Sensex 30 Dashboard
 
-- Dataset Overview
-    - Total Companies
-    - Total Records
-    - Trading Days
-    - Years Covered
+### 🌍 All Companies Dashboard
 
-- Market Comparison
-    - Average Closing Price
-    - Average Trading Volume
+#### Dataset Overview
 
-- Performance Analysis
-    - Average Daily Return
-    - Total Return
-    - Stock Volatility
+- Total Companies
+- Total Records
+- Trading Days
+- Years Covered
+
+#### Market Comparison
+
+- Average Closing Price
+- Average Trading Volume
+
+#### Performance Analysis
+
+- Average Daily Return
+- Total Return
+- Stock Volatility
+
+#### Correlation Analysis
 
 - Correlation Heatmap
 
 ---
 
-#### 🏢 Company-wise Dashboard
+### 🏢 Company-wise Dashboard
+
+#### Key Performance Indicators
 
 - Latest Closing Price
 - Highest Closing Price
 - Lowest Closing Price
 - Average Trading Volume
 
-##### Price Analysis
+#### 📈 Price Analysis
 
 - Closing Price Trend
 - Trading Volume Trend
 
-##### Technical Analysis
+#### 📊 Technical Analysis
 
-- 20-Day & 50-Day Moving Average
+- 20-Day Moving Average
+- 50-Day Moving Average
 
-##### Return Analysis
+#### 📉 Return Analysis
 
 - Daily Return Trend
 
-##### Relationship Analysis
+#### 🔍 Relationship Analysis
 
 - Open Price vs Closing Price
 - Trading Volume vs Closing Price
 
-##### Dataset Explorer
+#### 📋 Dataset Explorer
 
 - Interactive filtered dataset
+- Download filtered dataset as CSV
 
 ---
 
-## 🛠️ Tech Stack
+## 📂 Upload Your Dataset
+
+Users can upload **one or more stock CSV files** and receive the same analysis available in the Sensex dashboard.
+
+### Supported Features
+
+- Upload multiple company CSV files
+- Automatic dataset merging
+- Automatic Stock column creation from filenames
+- Automatic data cleaning
+- Automatic feature engineering
+- Company-wise analysis
+- Market-wide analysis
+- Interactive filtering
+- Download filtered dataset
+
+### Supported File Types
+
+- Yahoo Finance CSV exports
+- Custom stock datasets
+
+### Automatic Data Cleaning
+
+The application automatically performs:
+
+- Cleaning Yahoo Finance metadata rows
+- Column validation
+- Date conversion
+- Numeric data type conversion
+- Missing value removal
+- Duplicate removal
+- Automatic Stock column generation (if missing)
+- Dataset merging
+- Sorting by Company and Date
+
+---
+
+# 🛠️ Tech Stack
 
 - Python
 - Pandas
@@ -108,9 +163,19 @@ The following financial features were created during preprocessing:
 
 ---
 
-## 📷 Dashboard Preview
+# 📷 Dashboard Preview
 
-### 📈 All Companies Dashboard & Analysis
+## 🔍 Your Stocks Dataset Analysis
+
+<p align="center">
+  <a href="assets/dashboard%20(6).png">
+    <img src="assets/dashboard%20(6).png" width="90%">
+  </a>
+</p>
+
+---
+
+## 📈 All Companies Dashboard
 
 <p align="center">
   <a href="assets/dashboard%20(1).png">
@@ -122,7 +187,9 @@ The following financial features were created during preprocessing:
   </a>
 </p>
 
-### 📊 Individual Company Dashboard & Analysis
+---
+
+## 📊 Individual Company Dashboard
 
 <p align="center">
   <a href="assets/dashboard%20(3).png">
@@ -134,7 +201,9 @@ The following financial features were created during preprocessing:
   </a>
 </p>
 
-### 🔍 Relationship Analysis
+---
+
+## 🔍 Relationship Analysis
 
 <p align="center">
   <a href="assets/dashboard%20(5).png">
@@ -144,7 +213,7 @@ The following financial features were created during preprocessing:
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```
 Stock Analysis/
@@ -153,12 +222,16 @@ Stock Analysis/
 │   ├── app.py
 │   ├── charts.py
 │   ├── utils.py
+│   └── pages/
+│       └── 1_📂_Analyze_Your_Dataset.py
 │
 ├── notebooks/
 │   └── EDA.ipynb
 │
 ├── data/
 │   └── Sensex30_Master_Cleaned.csv
+│
+├── assets/
 │
 ├── requirements.txt
 │
@@ -167,7 +240,7 @@ Stock Analysis/
 
 ---
 
-## 📊 Key Analysis Performed
+# 📊 Key Analysis Performed
 
 - Historical stock price analysis
 - Trading volume analysis
@@ -177,10 +250,12 @@ Stock Analysis/
 - Correlation analysis
 - Moving Average trend analysis
 - Company-wise performance comparison
+- Interactive dashboard development
+- Automatic multi-file dataset processing
 
 ---
 
-## ▶️ Installation
+# ▶️ Installation
 
 Clone the repository
 
@@ -206,20 +281,26 @@ Run the Streamlit application
 streamlit run dashboard/app.py
 ```
 
-## 📈 Future Improvements
+---
+
+# 📈 Future Improvements
 
 - Portfolio performance analysis
 - Candlestick charts
-- Risk-adjusted return metrics
 - Company comparison dashboard
-- Live stock price integration
-- Dashboard deployment
+- Risk-adjusted return metrics
+- Live stock market integration
+- News sentiment analysis
+- Machine Learning price prediction
+- Cloud deployment
 
 ---
 
-This Project was built during Summer Internship at Elite TechnoCrats.
+This project was built during my **Summer Internship at Elite TechnoCrats**.
 
-## 👨‍💻 Author
+---
+
+# 👨‍💻 Author
 
 **Bhagya Shah**
 
